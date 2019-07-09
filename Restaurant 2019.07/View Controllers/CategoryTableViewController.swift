@@ -10,32 +10,45 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
     
-    let menuController = MenuController()
+    // MARK: Propeties
+    let cellManager = CellManager()
+    var categories = [String]()
 
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        var order = Order()
-        menuController.fetchCategories { categories in
+        MenuController.shared.fetchCategories { categories in
             guard let categories = categories else { return }
-            for category in categories {
-                self.menuController.fetchMenuItems(forCategory: category, completion: { menuItems in
-                    menuItems?.forEach { order.menuItems.append($0) }
-                    print("\n", category)
-                    print(#line, #function, menuItems ?? "nil")
-                    menuItems?.forEach {
-                        self.menuController.fetchImage(url: $0.imageURL, completion: { image in
-                            print(#line, #function, image ?? "nil")
-                        })
-                    }
-                })
-            }
-        }
-        print(#line, #function, "FINISHED FINISHED FINISHED")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            self.menuController.submitOrder(forMenuIDs: order.menuItems.map { $0.id }, completion: { minutes in
-                print(#line, #function, "Wait time:", minutes ?? "nil")
-            })
+            self.updateUI(with: categories)
         }
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "MenuSegue" else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let destination = segue.destination as! MenuTableViewController
+        destination.category = categories[indexPath.row]
+    }
+    
+    // MARK: - UI Methods
+    func updateUI(with categories: [String]) {
+        self.categories = categories
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
 
+// MARK: - UITableViewDataSource
+extension CategoryTableViewController /*: UITableViewDataSource */ {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell")!
+        cellManager.configure(cell, with: categories[indexPath.row])
+        return cell
+    }
 }

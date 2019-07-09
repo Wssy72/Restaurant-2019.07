@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6923EFA322D5066C00729AEE /* CellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6923EFA222D5066C00729AEE /* CellManager.swift */; };
+		6982CC6D22D5113500B61194 /* Reloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982CC6C22D5113500B61194 /* Reloadable.swift */; };
+		6982CC7022D5121900B61194 /* UITableView+Reloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982CC6F22D5121900B61194 /* UITableView+Reloadable.swift */; };
+		6982CC7222D526F900B61194 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982CC7122D526F900B61194 /* OrderConfirmationViewController.swift */; };
 		69B1585B22CFBDDE003F2238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B1585A22CFBDDE003F2238 /* AppDelegate.swift */; };
 		69B1586022CFBDDE003F2238 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B1585E22CFBDDE003F2238 /* Main.storyboard */; };
 		69B1586222CFBDE3003F2238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69B1586122CFBDE3003F2238 /* Assets.xcassets */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6923EFA222D5066C00729AEE /* CellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellManager.swift; sourceTree = "<group>"; };
+		6982CC6C22D5113500B61194 /* Reloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reloadable.swift; sourceTree = "<group>"; };
+		6982CC6F22D5121900B61194 /* UITableView+Reloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reloadable.swift"; sourceTree = "<group>"; };
+		6982CC7122D526F900B61194 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		69B1585722CFBDDE003F2238 /* Restaurant 2019.07.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Restaurant 2019.07.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B1585A22CFBDDE003F2238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B1585F22CFBDDE003F2238 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +61,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6982CC6B22D5110600B61194 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6982CC6C22D5113500B61194 /* Reloadable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		6982CC6E22D511FF00B61194 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6982CC6F22D5121900B61194 /* UITableView+Reloadable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		69B1584E22CFBDDE003F2238 = {
 			isa = PBXGroup;
 			children = (
@@ -72,9 +96,11 @@
 		69B1585922CFBDDE003F2238 /* Restaurant 2019.07 */ = {
 			isa = PBXGroup;
 			children = (
+				6982CC6E22D511FF00B61194 /* Extensions */,
 				69B1586C22CFC29C003F2238 /* Models */,
-				69B1586F22CFC2B9003F2238 /* Supporting Files */,
 				69B1586D22CFC2A2003F2238 /* Other Controllers */,
+				6982CC6B22D5110600B61194 /* Protocols */,
+				69B1586F22CFC2B9003F2238 /* Supporting Files */,
 				69B1586E22CFC2B0003F2238 /* View Controllers */,
 				69B1587022CFC2C4003F2238 /* Views */,
 			);
@@ -96,6 +122,7 @@
 		69B1586D22CFC2A2003F2238 /* Other Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6923EFA222D5066C00729AEE /* CellManager.swift */,
 				69B1588322CFCB52003F2238 /* MenuController.swift */,
 			);
 			path = "Other Controllers";
@@ -108,6 +135,7 @@
 				69B1587322CFC41C003F2238 /* MenuTableViewController.swift */,
 				69B1587522CFC46B003F2238 /* MenuItemDetailViewController.swift */,
 				69B1587722CFC4DE003F2238 /* OrderTableViewController.swift */,
+				6982CC7122D526F900B61194 /* OrderConfirmationViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -207,8 +235,12 @@
 				69B1588222CFC8A9003F2238 /* Order.swift in Sources */,
 				69B1587822CFC4DE003F2238 /* OrderTableViewController.swift in Sources */,
 				69B1587222CFC405003F2238 /* CategoryTableViewController.swift in Sources */,
+				6982CC7222D526F900B61194 /* OrderConfirmationViewController.swift in Sources */,
 				69B1588422CFCB52003F2238 /* MenuController.swift in Sources */,
+				6982CC7022D5121900B61194 /* UITableView+Reloadable.swift in Sources */,
 				69B1587A22CFC566003F2238 /* MenuItem.swift in Sources */,
+				6982CC6D22D5113500B61194 /* Reloadable.swift in Sources */,
+				6923EFA322D5066C00729AEE /* CellManager.swift in Sources */,
 				69B1587C22CFC734003F2238 /* MenuItems.swift in Sources */,
 				69B1588022CFC857003F2238 /* PreparationTime.swift in Sources */,
 				69B1587422CFC41C003F2238 /* MenuTableViewController.swift in Sources */,
